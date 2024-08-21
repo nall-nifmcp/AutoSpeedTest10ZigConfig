@@ -14,7 +14,7 @@ service cron stop
 service cron start
 
 viewsharevar='"/tmp"'
-grep -qxF "view.sharingFolders = $viewsharevar" /tmp/config/files/vmware/view-preferences || echo "view.shareFolders = $viewsharevar" >> /tmp/config/files/vmware/view-preferences
+grep -qxF "view.sharingFolders = $viewsharevar" /tmp/config/files/vmware/view-preferences || echo "view.sharingFolders = $viewsharevar" >> /tmp/config/files/vmware/view-preferences
 
 sync
 freeze
