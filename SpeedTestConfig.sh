@@ -8,7 +8,7 @@ else
 	chmod +x ./speedtest.sh
 fi
 
-echo "35 14 * * * /boot/lib/speedtest.sh" | tee -a /var/spool/cron/crontabs/root
+echo "00 12 * * * /boot/lib/speedtest.sh" | tee -a /var/spool/cron/crontabs/root
 
 service cron stop
 service cron start
