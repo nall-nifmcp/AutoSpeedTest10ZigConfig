@@ -4,7 +4,7 @@ if [ -f "$FILE" ]; then
 	echo "$FILE" exists
 else
 	cd /boot/lib
-	echo  -e 'FILE=/boot/lib/speedtest.py\nif [ -f "$FILE" ]; then\necho "$FILE" exists\nelse\ncd /boot/lib\nwget https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py\nchmod +x ./speedtest.py\nfi\npython3 /boot/lib/speedtest.py >> /tmp/speedtest.log\n' >> ./speedtest.sh
+	echo  -e 'FILE=/boot/lib/speedtest.py\nif [ -f "$FILE" ]; then\necho "$FILE" exists\nelse\ncd /boot/lib\nwget https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py\nchmod +x ./speedtest.py\nfi\npython3 /boot/lib/speedtest.py >> /tmp/speedtest.log\n' > ./speedtest.sh
 	chmod +x ./speedtest.sh
 fi
 
