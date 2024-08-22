@@ -13,6 +13,8 @@ echo "00 12 * * * /boot/lib/speedtest.sh" | tee -a /var/spool/cron/crontabs/root
 service cron stop
 service cron start
 
+sleep 30s
+
 viewsharevar='"/tmp"'
 grep -qxF "view.sharingFolders = $viewsharevar" /tmp/config/files/vmware/view-preferences || echo "view.sharingFolders = $viewsharevar" >> /tmp/config/files/vmware/view-preferences
 
