@@ -12,8 +12,14 @@ echo "00 12 * * * /boot/lib/speedtest.sh" | tee -a /var/spool/cron/crontabs/root
 
 service cron stop
 service cron start
+mkdir -p /tmp/config/files/vmware
+CONFIGFILE=/tmp/config/files/vmware/view-preferences
+if [ -f "$CONFIGFILE" ]; then
+	echo "$CONFIGFILE" exists
+else
+	touch $CONFIGFILE
 
-sleep 30s
+fi
 
 viewsharevar='"/tmp"'
 grep -qxF "view.sharingFolders = $viewsharevar" /tmp/config/files/vmware/view-preferences || echo "view.sharingFolders = $viewsharevar" >> /tmp/config/files/vmware/view-preferences
