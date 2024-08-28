@@ -12,6 +12,6 @@ then
   chmod +x /boot/autostart.d/SpeedTestConfig.sh  
   echo "Update Completed from $CurrentVersion to $NewVersion"
 else
-echo "version $CurrentVersion is up-to-date"
+  echo "version $CurrentVersion is up-to-date"
 fi
 
