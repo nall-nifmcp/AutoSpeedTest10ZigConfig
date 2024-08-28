@@ -3,7 +3,7 @@ CurrentVersion=$(cat /boot/lib/version)
 wget -N https://raw.githubusercontent.com/nall-nifmcp/AutoSpeedTest10ZigConfig/main/Version
 NewVersion=$(cat /boot/lib/version)
 
-if ["$CurrentVersion" != "$NewVersion"]
+if [["$CurrentVersion" != "$NewVersion"]]
 then
   echo Update is available...
   echo Updating....
