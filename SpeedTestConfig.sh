@@ -1,7 +1,7 @@
 mkdir -p /boot/lib/
 
-##Version 1.0.2
-Version="1.0.2"
+##Version 1.0.3
+Version="1.0.3"
 echo $Version > /boot/lib/version
 
 AutoUpdate=/boot/lib/Updater.sh
