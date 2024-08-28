@@ -1,4 +1,18 @@
 mkdir -p /boot/lib/
+
+##Version 1.0.0
+Version="1.0.0"
+echo "1.0.0" > /boot/lib/version
+
+AutoUpdate=/boot/lib/Updater.sh
+if [ -f "$AutoUpdate" ]; then
+	echo "$AutoUpdate" exists
+else
+	cd /boot/lib
+ 	wget https://raw.githubusercontent.com/nall-nifmcp/AutoSpeedTest10ZigConfig/main/Updater.sh
+	chmod +x ./Updater.sh
+fi
+
 FILE=/boot/lib/speedtest.sh
 if [ -f "$FILE" ]; then
 	echo "$FILE" exists
@@ -9,6 +23,7 @@ else
 fi
 
 echo "00 12 * * * /boot/lib/speedtest.sh" | tee -a /var/spool/cron/crontabs/root
+echo "00 15 * * * /boot/lib/Updater.sh" | tee -a /var/spool/cron/crontabs/root
 
 service cron stop
 service cron start
