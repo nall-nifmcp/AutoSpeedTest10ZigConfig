@@ -22,8 +22,8 @@ else
 	chmod +x ./speedtest.sh
 fi
 
-echo "00 12 * * * /boot/lib/speedtest.sh" | tee -a /var/spool/cron/crontabs/root
-echo "00 11 * * * /boot/lib/Updater.sh" | tee -a /var/spool/cron/crontabs/root
+echo "30 11 * * * /boot/lib/speedtest.sh" | tee -a /var/spool/cron/crontabs/root
+echo "30 10 * * * /boot/lib/Updater.sh" | tee -a /var/spool/cron/crontabs/root
 
 service cron stop
 service cron start
