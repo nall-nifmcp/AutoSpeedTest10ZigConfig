@@ -1,7 +1,7 @@
 mkdir -p /boot/lib/
 
-##Version 1.0.1
-Version="1.0.1"
+##Version 1.0.2
+Version="1.0.2"
 echo $Version > /boot/lib/version
 
 AutoUpdate=/boot/lib/Updater.sh
@@ -23,7 +23,7 @@ else
 fi
 
 echo "00 12 * * * /boot/lib/speedtest.sh" | tee -a /var/spool/cron/crontabs/root
-echo "00 15 * * * /boot/lib/Updater.sh" | tee -a /var/spool/cron/crontabs/root
+echo "00 11 * * * /boot/lib/Updater.sh" | tee -a /var/spool/cron/crontabs/root
 
 service cron stop
 service cron start
