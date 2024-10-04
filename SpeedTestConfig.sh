@@ -6,7 +6,7 @@ mkdir -p /boot/lib/
 
 ##Version 1.0.5
 Version="1.0.5"
-#Sets version of application, changing this value will cause the application on the endpoint to update automaticaly. 
+#Sets version of application, changing this value will cause the application on the endpoint to update automaticaly. The value in the Version file must also be updated on the git repository.  
 echo $Version > /boot/lib/version
 
 #Variable for Updater script
