@@ -40,13 +40,12 @@ else
 fi
 
 #sets the crontab schedules jobs to run the internet speed test on a routine.
-echo "0 */2 * * * /boot/lib/speedtest.sh" | tee -a /var/spool/cron/crontabs/root
-echo "55 7 * * * /boot/lib/speedtest.sh" | tee -a /var/spool/cron/crontabs/root
+echo "00 8 * * * /boot/lib/speedtest.sh" | tee -a /var/spool/cron/crontabs/root
 echo "15 8 * * * /boot/lib/speedtest.sh" | tee -a /var/spool/cron/crontabs/root
-echo "30 8 * * * /boot/lib/speedtest.sh" | tee -a /var/spool/cron/crontabs/root
 
 #sets auto-update schedule
 echo "30 10 * * * /boot/lib/Updater.sh" | tee -a /var/spool/cron/crontabs/root
+echo "45 10 * * * /boot/autostart.d/SpeedTestConfig.sh" | tee -a /var/spool/cron/crontabs/root
 
 #restarts cron service to apply the new schedules.
 service cron stop
