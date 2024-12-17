@@ -4,11 +4,15 @@
 #Creates directory for main scripts to be stored if it does not exist.
 mkdir -p /boot/lib/
 
-##Version 1.0.5
-Version="1.0.5"
+##Version 1.0.6
+Version="1.0.6"
 #Sets version of application, changing this value will cause the application on the endpoint to update automaticaly. The value in the Version file must also be updated on the git repository.  
 echo $Version > /boot/lib/version
 
+#Removing speedtest.sh file to replace python script with speedtestcli from ookla on versions 1.0.5 and lower
+rm /boot/lib/speedtest.sh
+#Removing speedtest.py used in version 1.0.5 and lower
+rm /boot/lib/speedtest.py
 #Variable for Updater script
 AutoUpdate=/boot/lib/Updater.sh
 #Checks if Updater script exists, if not downloads it.
@@ -27,10 +31,9 @@ if [ -f "$FILE" ]; then
 	echo "$FILE" exists
 else
 #This uses echo to write the speedtest.sh script if it does not exist. 
-#Inside this "sub" script, it will also ensure the python speedtest utility is available and if not, download it. 
+#Inside this "sub" script, it will also ensure the speedtest utility is available and if not, download it. 
 	cd /boot/lib
-	echo  -e 'FILE=/boot/lib/speedtest.py\nif [ -f "$FILE" ]; then\necho "$FILE" exists\nelse\ncd /boot/lib\nwget https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py\nchmod +x ./speedtest.py\nfi\npython3 /boot/lib/speedtest.py > /tmp/speedtest.log\n' >> ./speedtest.sh
-	chmod +x ./speedtest.sh
+	echo -e 'SPEEDTESTCLI=/boot/lib/speedtest\nif [ -f "$SPEEDTESTCLI" ]; then\n echo "$SPEEDTESTCLI" exists\nelse\nwget https://install.speedtest.net/app/cli/ookla-speedtest-1.2.0-linux-x86_64.tgz\n tar -xvzf ookla-speedtest-1.2.0-linux-x86_64.tgz\n rm ./ookla-speedtest-1.2.0-linux-x86_64.tgz\n rm ./speedtest.md\nfi\n/boot/lib/speedtest --accept-license > /tmp/speedtest.log\n' >> ./speedtestnew.sh
 fi
 
 #sets the crontab schedules jobs to run the internet speed test on a routine.
