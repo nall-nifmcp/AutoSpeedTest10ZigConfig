@@ -33,7 +33,7 @@ else
 #This uses echo to write the speedtest.sh script if it does not exist. 
 #Inside this "sub" script, it will also ensure the speedtest utility is available and if not, download it. 
 	cd /boot/lib
-	echo -e 'SPEEDTESTCLI=/boot/lib/speedtest\nif [ -f "$SPEEDTESTCLI" ]; then\n echo "$SPEEDTESTCLI" exists\nelse\nwget https://install.speedtest.net/app/cli/ookla-speedtest-1.2.0-linux-x86_64.tgz\n tar -xvzf ookla-speedtest-1.2.0-linux-x86_64.tgz\n rm ./ookla-speedtest-1.2.0-linux-x86_64.tgz\n rm ./speedtest.md\nfi\n/boot/lib/speedtest --accept-license > /tmp/speedtest.log\n' >> ./speedtestnew.sh
+	echo -e 'SPEEDTESTCLI=/boot/lib/speedtest\nif [ -f "$SPEEDTESTCLI" ]; then\n echo "$SPEEDTESTCLI" exists\nelse\nwget https://install.speedtest.net/app/cli/ookla-speedtest-1.2.0-linux-x86_64.tgz\n tar -xvzf ookla-speedtest-1.2.0-linux-x86_64.tgz\n rm ./ookla-speedtest-1.2.0-linux-x86_64.tgz\n rm ./speedtest.md\nfi\n/boot/lib/speedtest --accept-license > /tmp/speedtest.log\n' >> ./speedtest.sh
 fi
 
 #sets the crontab schedules jobs to run the internet speed test on a routine.
