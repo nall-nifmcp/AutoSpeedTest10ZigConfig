@@ -13,6 +13,9 @@ echo $Version > /boot/lib/version
 rm /boot/lib/speedtest.sh
 #Removing speedtest.py used in version 1.0.5 and lower
 rm /boot/lib/speedtest.py
+#Removing Updater script used in version 1.0.5 and lower, Updater now runs config script after an update is recieved. 
+rm /boot/lib/Updater.sh
+
 #Variable for Updater script
 AutoUpdate=/boot/lib/Updater.sh
 #Checks if Updater script exists, if not downloads it.
